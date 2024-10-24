@@ -4,7 +4,9 @@ export default (initialState: API.UserInfo) => {
   const canSeeAdmin = !!(
     initialState && initialState.name !== 'dontHaveAccess'
   );
+  const isLogin = !!sessionStorage.getItem('token');
   return {
     canSeeAdmin,
+    isLogin,
   };
 };

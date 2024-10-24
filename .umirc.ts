@@ -11,6 +11,11 @@ export default defineConfig({
   },
   routes: [
     {
+      path: '/login',
+      component: './LoginPage',
+      layout: false,
+    },
+    {
       path: '/',
       redirect: '/home',
     },
@@ -20,15 +25,21 @@ export default defineConfig({
       component: './Home',
     },
     {
-      name: '权限演示',
-      path: '/access',
-      component: './Access',
+      name: '单位管理',
+      path: '/unit',
+      component: './Unit',
     },
     {
-      name: ' CRUD 示例',
+      name: '人员备案',
       path: '/table',
       component: './Table',
     },
+    // {
+    //   name: '在线报名',
+    //   path: '/table',
+    //   component: './Table',
+    //   wrappers: ['@/wrapper/auth']
+    // },
   ],
   npmClient: 'yarn',
 });

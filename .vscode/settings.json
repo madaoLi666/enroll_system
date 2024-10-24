@@ -1,0 +1,19 @@
+{
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "previewLimit": 50,
+      "server": "83.229.124.178",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "yecaoyun",
+      "database": "enroll_system",
+      "username": "lijiecong",
+      "askForPassword": true,
+      "connectionTimeout": 15
+    }
+  ]
+}
