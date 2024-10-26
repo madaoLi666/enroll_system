@@ -1,11 +1,4 @@
-/* eslint-disable */
-// 该文件由 OneAPI 自动生成，请勿手动修改！
-import { request } from '@umijs/max';
-import type { AxiosRequestHeaders } from 'axios';
-const selfHeaders: AxiosRequestHeaders = {
-  'Content-Type': 'application/json',
-  token: sessionStorage.getItem('token') as string,
-};
+import request from '@/utils/request';
 
 export async function getInfo(
   body?: API.UserInfoVO,
@@ -13,7 +6,6 @@ export async function getInfo(
 ) {
   return request<API.Result>('http://localhost:8080/unit/info', {
     method: 'GET',
-    headers: selfHeaders,
     data: body,
     ...(options || {}),
   });
@@ -25,7 +17,6 @@ export async function updateInfo(
 ) {
   return request<API.Result>('http://localhost:8080/unit/update', {
     method: 'POST',
-    headers: selfHeaders,
     data: body,
     ...(options || {}),
   });

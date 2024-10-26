@@ -24,6 +24,7 @@ const Login: React.FC<IProp> = (props: IProp) => {
         });
         history.push('/');
         sessionStorage.setItem('token', res.data?.token);
+        sessionStorage.setItem('userId', res.data?.userId);
       } else {
         props.messageApi.open({
           type: 'error',

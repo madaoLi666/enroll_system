@@ -1,6 +1,4 @@
-/* eslint-disable */
-// 该文件由 OneAPI 自动生成，请勿手动修改！
-import { request } from '@umijs/max';
+import request from '@/utils/request';
 
 export async function login(
   body?: API.UserInfoVO,
@@ -8,9 +6,6 @@ export async function login(
 ) {
   return request<API.Result>('http://localhost:8080/user/login', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
     data: body,
     ...(options || {}),
   });
@@ -22,9 +17,6 @@ export async function register(
 ) {
   return request<API.Result>('http://localhost:8080/user/register', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
     data: body,
     ...(options || {}),
   });

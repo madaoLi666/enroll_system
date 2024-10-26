@@ -34,6 +34,11 @@ export default defineConfig({
       path: '/table',
       component: './Table',
     },
+    {
+      name: '运动员管理',
+      path: '/athlete',
+      component: './Athlete',
+    },
     // {
     //   name: '在线报名',
     //   path: '/table',

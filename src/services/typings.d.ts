@@ -56,6 +56,16 @@ declare namespace API {
     gender?: UserGenderEnum;
   }
 
+  interface AthleteInfo {
+    id: string;
+    athleteName: string;
+    idCardType: number;
+    idCard: string;
+    phoneNumber: string;
+    avatarUrl: string;
+    sex: 0 | 1;
+  }
+
   interface UserInfoVO {
     name?: string;
     /** nick */
