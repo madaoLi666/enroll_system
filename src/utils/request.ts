@@ -1,5 +1,6 @@
 import { history } from '@umijs/max';
-import axios from 'axios';
+import axios, { AxiosError, AxiosResponse } from 'axios';
+import { responseFormatter } from './format';
 const DEBUG_ORIGIN = 'http://localhost:8080';
 
 const instance = axios.create({
@@ -23,16 +24,23 @@ instance.interceptors.request.use((config) => {
   return config;
 });
 
+function responseErrorHandling(error: AxiosError) {
+  if (error.status === 401) {
+    history.push('/login');
+  }
+}
+
 // 拦截401
 instance.interceptors.response.use(
-  (response) => {
-    return response.data;
+  (response: AxiosResponse) => {
+    // 这里已经是请求正常德
+    return responseFormatter(response);
   },
-  (err) => {
-    console.log(err);
-    if (err.status === 401) {
-      history.push('/login');
-    }
+  (err: AxiosError) => {
+    responseErrorHandling(err);
+    // 这个位置应该处理掉error里面的信息
+    // Promise reject只需要告诉组件这个请求失败了就行了
+    // 并不需要把错误信息往下传递（但暂时先直接传下去）
     return Promise.reject(err);
   },
 );

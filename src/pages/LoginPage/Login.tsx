@@ -14,17 +14,16 @@ type IProp = {
 
 const Login: React.FC<IProp> = (props: IProp) => {
   const onFinish = (values: any) => {
-    console.log(values);
     login(values).then((res) => {
       // 登录成功
-      if (res.state === 200) {
+      if (res) {
         props.messageApi.open({
           type: 'success',
-          content: res.message,
+          content: res,
         });
         history.push('/');
-        sessionStorage.setItem('token', res.data?.token);
-        sessionStorage.setItem('userId', res.data?.userId);
+        sessionStorage.setItem('token', res?.token);
+        sessionStorage.setItem('userId', res?.userId);
       } else {
         props.messageApi.open({
           type: 'error',

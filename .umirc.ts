@@ -6,8 +6,10 @@ export default defineConfig({
   model: {},
   initialState: {},
   request: {},
+  dva: {},
   layout: {
     title: '@umijs/max',
+    locale: false,
   },
   routes: [
     {
@@ -30,14 +32,25 @@ export default defineConfig({
       component: './Unit',
     },
     {
-      name: '人员备案',
-      path: '/table',
-      component: './Table',
-    },
-    {
       name: '运动员管理',
       path: '/athlete',
       component: './Athlete',
+    },
+    {
+      name: '赛事管理',
+      path: '/game',
+      routes: [
+        {
+          name: '赛事选择',
+          path: 'game',
+          component: './Admin/Game',
+        },
+        {
+          name: '项目管理',
+          path: 'item',
+          component: './Admin/Item',
+        },
+      ],
     },
     // {
     //   name: '在线报名',
