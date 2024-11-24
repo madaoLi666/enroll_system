@@ -31,6 +31,7 @@ const ItemForm: React.FC<any> = (props: IProp) => {
       minAge,
       maxAge,
       remark: values['remark'],
+      limitedNumber: Number(values['limitedNumber']),
     };
 
     props
@@ -39,6 +40,7 @@ const ItemForm: React.FC<any> = (props: IProp) => {
         payload: requestBody,
       })
       .then((res: any) => {
+        console.log(res);
         if (res) {
           props.successCallback();
         }
@@ -55,6 +57,7 @@ const ItemForm: React.FC<any> = (props: IProp) => {
       minNum: initialValue.minNumber,
       maxNum: initialValue.maxNumber,
       age: [dayjs(initialValue.minAge), dayjs(initialValue.maxAge)],
+      limitedNumber: initialValue.limitedNumber,
       ...initialValue,
     };
   }, []);
@@ -91,6 +94,12 @@ const ItemForm: React.FC<any> = (props: IProp) => {
           placeholder={['最早出生', '最迟出生']}
           format={'YYYY-MM-DD'}
         />
+      </Item>
+      <Item
+        name="limitedNumber"
+        rules={[{ required: true, message: '报名限制数量' }]}
+      >
+        <Input type="number" placeholder="报名数量限制" />
       </Item>
       <Item name="remark" rules={[{ required: true, message: '请输入备注' }]}>
         <Input placeholder="备注" />

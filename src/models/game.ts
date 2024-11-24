@@ -19,7 +19,7 @@ export default {
     *item({ payload }: any, { call, put, select }: any) {
       // @ts-ignore
       const response = yield call(createItemAPI, payload);
-      if (!response.data) {
+      if (!response) {
         return false;
       }
       // @ts-ignore

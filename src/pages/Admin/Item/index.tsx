@@ -39,22 +39,25 @@ const Item: React.FC<IProp> = (props: IProp) => {
       },
     },
     {
-      title: '人数限制',
+      title: '队员人数限制',
       key: 'number',
       render: (_text: string, record: any) => {
-        return `${record.minNumber}至${record.maxNumber}`;
+        return `${record.minNumber} - ${record.maxNumber}`;
       },
+    },
+    {
+      title: '报名数量限制',
+      key: 'limitedNumber',
+      dataIndex: 'limitedNumber',
     },
     {
       title: '年龄限制',
       key: 'age',
       render: (_text: string, record: any) => {
         console.log(_text);
-        console.log(record);
-        return 1;
-        // const startTimeText = record.startTime.substr(0, 10);
-        // const endTimeText = record.endTime.substr(0, 10);
-        // return `${startTimeText}至${endTimeText}`;
+        const startTimeText = record.minAge.substr(0, 10);
+        const endTimeText = record.maxAge.substr(0, 10);
+        return `${startTimeText}至${endTimeText}`;
       },
     },
     {
