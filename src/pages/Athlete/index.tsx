@@ -104,8 +104,9 @@ const AthleteList: React.FC = () => {
         request={async () => {
           const userId = sessionStorage.getItem('userId') as string;
           const response = await getAthleteListByUserId({ userId });
+          console.log(response);
           return {
-            data: response.data,
+            data: response
           };
         }}
         columns={columns}

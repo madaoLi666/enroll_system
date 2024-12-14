@@ -24,11 +24,6 @@ const Login: React.FC<IProp> = (props: IProp) => {
         history.push('/');
         sessionStorage.setItem('token', res?.token);
         sessionStorage.setItem('userId', res?.userId);
-      } else {
-        props.messageApi.open({
-          type: 'error',
-          content: res.message,
-        });
       }
       // 登录失败
     });

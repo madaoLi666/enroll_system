@@ -1,16 +1,24 @@
 // 全局共享数据示例
 import {
+  getGameList as queryGameAPI,
   createItem as createItemAPI,
   queryItem as queryItemAPI,
 } from '@/services/GameController';
 
+
 export default {
   namespace: 'game',
   state: {
+    games: [],
     gameInfo: {},
     items: [],
   },
   effects: {
+    *queryGame({ payload }: any, { call, put }: any) {
+      // @ts-ignore
+      const gameList = yield call(queryGameAPI);
+      yield put({ type: 'setGames', payload: gameList});
+    },
     *queryItem({ payload }: any, { call, put }: any) {
       // @ts-ignore
       const itemList = yield call(queryItemAPI, payload);
@@ -31,6 +39,12 @@ export default {
     },
   },
   reducers: {
+    setGames(state: any, { payload }: any) {
+      return {
+        ...state,
+        games: payload
+      }
+    },
     setGameInfo(state: any, { payload }: any) {
       return {
         ...state,

@@ -17,13 +17,13 @@ const Unit: React.FC = () => {
 
   React.useEffect(() => {
     getInfo().then((res) => {
-      if (!res.data) {
+      if (!res) {
         message.open({
           type: 'warning',
           content: '请补充单位信息',
         });
       } else {
-        setUnitInfo(res.data);
+        setUnitInfo(res);
       }
     });
   }, [modalVisible]);

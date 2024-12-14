@@ -1,6 +1,8 @@
-import { history } from '@umijs/max';
-import axios, { AxiosError, AxiosResponse } from 'axios';
-import { responseFormatter } from './format';
+import { history } from "@umijs/max";
+import axios, { AxiosError, AxiosResponse } from "axios";
+import { responseFormatter } from "./format";
+import { message } from "antd";
+
 const DEBUG_ORIGIN = 'http://localhost:8080';
 
 const instance = axios.create({
@@ -24,10 +26,16 @@ instance.interceptors.request.use((config) => {
   return config;
 });
 
+function genErrorText(error: AxiosError) {
+  return `错误代码: ${error.code}, 错误信息: ${error.message}`;
+}
+
 function responseErrorHandling(error: AxiosError) {
+  console.log(error);
   if (error.status === 401) {
     history.push('/login');
   }
+  message.error(genErrorText(error), 5);
 }
 
 // 拦截401

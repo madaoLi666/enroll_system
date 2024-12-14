@@ -52,12 +52,11 @@ export default defineConfig({
         },
       ],
     },
-    // {
-    //   name: '在线报名',
-    //   path: '/table',
-    //   component: './Table',
-    //   wrappers: ['@/wrapper/auth']
-    // },
+    {
+      name: '在线报名',
+      path: '/enroll',
+      component: './Enroll'
+    },
   ],
   npmClient: 'yarn',
 });

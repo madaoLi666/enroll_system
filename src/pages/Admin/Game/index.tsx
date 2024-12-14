@@ -71,6 +71,7 @@ const Game: React.FC<any> = (props) => {
             >
               进入
             </Button>
+
             <Button
               onClick={() => {
                 setGameData(record);
@@ -78,6 +79,10 @@ const Game: React.FC<any> = (props) => {
               }}
             >
               修改
+            </Button>
+            
+            <Button color="danger" variant="solid">
+              删除
             </Button>
           </>
         );
