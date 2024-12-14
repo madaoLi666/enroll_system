@@ -4,7 +4,7 @@ export async function login(
   body?: API.Result,
   options?: { [key: string]: any },
 ) {
-  return request('http://localhost:8080/user/login', {
+  return request('/user/login', {
     method: 'POST',
     data: body,
     ...(options || {}),
@@ -15,7 +15,7 @@ export async function register(
   body?: API.Result,
   options?: { [key: string]: any },
 ) {
-  return request('http://localhost:8080/user/register', {
+  return request('/user/register', {
     method: 'POST',
     data: body,
     ...(options || {}),

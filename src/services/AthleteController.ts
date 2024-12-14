@@ -30,7 +30,7 @@ export async function updateAthleteInfo(
   body?: API.AthleteInfo,
   options?: { [key: string]: any },
 ) {
-  return request<API.Result>('http://localhost:8080/athlete/updateInfo', {
+  return request<API.Result>('/athlete/updateInfo', {
     method: 'POST',
     data: body,
     ...(options || {}),

@@ -15,19 +15,3 @@ export const layout: RunTimeLayoutConfig = (initialState) => {
     },
   };
 };
-
-import type { RequestConfig } from 'umi';
-
-const DEBUG_ORIGIN = 'http://localhost:8080';
-
-export const request: RequestConfig = {
-  timeout: 10000,
-  baseURL: DEBUG_ORIGIN,
-  headers: {},
-  responseInterceptors: [
-    (response) => {
-      console.log(response);
-      return response;
-    },
-  ],
-};
